@@ -62,10 +62,8 @@ export function BarChart(props) {
     datasets: [
       {
         label: "Intensity",
-        data: labels.map((intensity) => {
-          const found = recordsData.find(
-            (item) => item.intensity === intensity
-          );
+        data: labels.map((label) => {
+          const found = recordsData.find((item) => item[chartType] === label);
           return found ? found.intensity : 0;
         }),
         borderColor: "rgb(255, 99, 132)",
@@ -73,11 +71,9 @@ export function BarChart(props) {
         yAxisID: "y",
       },
       {
-        labels: "Likelihood",
-        data: labels.map((likelihood) => {
-          const found = recordsData.find(
-            (item) => item.likelihood === likelihood
-          );
+        label: "Likelihood",
+        data: labels.map((label) => {
+          const found = recordsData.find((item) => item[chartType] === label);
           return found ? found.likelihood : 0;
         }),
         borderColor: "rgb(53, 162, 235)",
@@ -85,11 +81,10 @@ export function BarChart(props) {
         yAxisID: "y",
       },
       {
-        labels: "Relevance",
-        data: labels.map((relevance) => {
-          const found = recordsData.find(
-            (item) => item.relevance === relevance
-          );
+        label: "Relevance",
+        data: labels.map((label) => {
+          const found = recordsData.find((item) => item[chartType] === label);
+
           return found ? found.relevance : 0;
         }),
         borderColor: "rgb(22, 32, 333)",

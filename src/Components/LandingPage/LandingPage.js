@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BarChart } from "../BarChart/BarChart";
-import { LineChart } from "../LineChart/LineChart";
 import css from "./LandingPage.module.css";
 import { AiOutlineLoading } from "react-icons/ai";
 import Navbar from "../NavBar/NavBar";
 import axios from "axios";
 const LandingPage = (props) => {
-  const [chartType, setChartType] = useState("bar");
+  const [chartType, setChartType] = useState("country");
   const [loading, setLoading] = useState(true);
   const [pestles, setPestle] = useState([]);
   const [topics, setTopic] = useState([]);
@@ -55,6 +54,7 @@ const LandingPage = (props) => {
         setLoading(false);
       });
   }, []);
+  console.log({ data, chartType });
   let chart = (
     <BarChart
       regions={regions}
